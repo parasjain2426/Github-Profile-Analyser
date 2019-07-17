@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <style>
+    .box{
+     height:150px;
+     width:200px;
+     background-color:#9932CC;
+     animation-duration:4s;
+     position:relative;
+     animation-direction:alternate;
+     animation-name:boxlog;
+    }
+    @keyframes boxlog{
+    0%{top:200px;bottom:0px;}
+    100%{top:0px;bottom:200px;}
+    }
+    </style>
+</head>
+<body background="https://repository-images.githubusercontent.com/58559694/aeae5400-6102-11e9-980d-dc74185ed41d">
+<h1><font color="white">Welcome to GitHub Profile Analyzer</font></h1>
+  <div align="center">
+<form title="Login Credentials"  method="post" class="box" style="margin:80px;padding:30px;">
+    <div style="margin:5px;"><font color="white">Login Id</font></div>
+    <input name="loginid" placeholder="GitHub Id" type="text">
+    <div style="margin:5px;"><font color="white">Password</font></div>
+    <input type="password" placeholder="GitHub Password" name="password">
+    <div align="center" style="margin:15px;">
+        <input type="submit"  value="submit">
+    </div>
+</form>
+      </div>
+<div align="center"><font color="red">{{error}}</font></div>
+</body>
+</html>

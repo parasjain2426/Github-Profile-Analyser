@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Plotly.js -->
+  <style>
+  #myDiv {
+  margin: 0 auto;
+  border: 1px solid black;
+  height: 85vh;
+  min-height: 300px;
+}
+</style>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <script>
+  b=[];
+  {% for i in namelist %}
+  b.push("{{i}}");
+  {% endfor %}
+  a=[];
+  {% for j in watcherlist %}
+  a.push("{{j}}");
+  {% endfor %}
+  var trace1 = {
+    type: 'bar',
+    x: b,
+    y: a,
+    marker: {
+        color: '#C8A2C8',
+        line: {
+            width: 2.5
+        }
+    }
+};
+
+var data = [ trace1 ];
+
+var layout = {
+  title: 'Popularity!',
+  font: {size: 18}
+};
+
+Plotly.newPlot('myDiv', data, layout, {responsive: true});
+
+    <!-- JAVASCRIPT CODE GOES HERE -->
+  </script>
+<div align="center">
+    <a href="/analysepage">
+        <button>Go Back</button>
+    </a>
+</div>
+</body>
+</html>

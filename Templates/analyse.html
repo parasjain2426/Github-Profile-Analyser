@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>GitHub Analyze Page</title>
+    <style>
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+margin:0px;
+}
+.bioborder{
+height:150px;
+width:150px;
+margin-bottom:5px;
+}
+    .pic{
+    height:200px;
+    width:200px;
+    display: block;
+    vertical-align:middle;
+    align:left;
+    border-radius:50%;
+      background-image:url("{{img}}");
+      margin-bottom:15px;
+    }
+        .leftside{
+        margin:10px;
+        padding:35px;
+        }
+  th, td {
+  padding: 20px;
+  margin:0px;
+   }
+    </style>
+</head>
+<body background="https://i2.wp.com/wpism.com/wp-content/uploads/Github-Publish-Using-Command-line-.png?fit=2500%2C1125&ssl=1">
+<h1 align="center" class="topnav">
+   <font color="white">GitHub Profile Analyzer</font>
+</h1>
+<div align="right" class="topnav" style="margin-right:2px;margin-top:10px;">
+    <a href="logout"><font color="white">Logout</font></a>
+</div>
+<table>
+<tbody>
+<tr>
+<td>
+<div class="pic" align="left">
+</div>
+    <div style="margin-bottom:10px;">
+        <span style="font-weight:bold;">Welcome</span> :{{n}}
+        </div>
+<div align="left" style="margin-bottom:10px;">
+    <span style="font-weight:bold;">You are following</span> : {{z2}}
+    </div>
+<div align="left" style="margin-bottom:10px;">
+    <span style="font-weight:bold;">People Follow you</span> : {{z3}}
+</div>
+<div align="left" class="bioborder">
+    <span style="font-weight:bold;"> Bio</span> : {{bio}}
+    </div>
+<div align="center">
+<a href="/graph">
+<button style="padding:5px;background-color: #4CAF50;"><font color="white">Show Graph</font></button></a>
+</div>
+</td>
+<td><div align="right">
+    <table title="Information" border="1px" style="padding:10px;border-collapse:collapse;">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Name of repo</th>
+            <th>Forks</th>
+            <th>Watchers</th>
+            <th>Stars</th>
+            <th>Size(in Kb)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                {%for i in range(1,count)%}
+                <div style="padding:0px;">{{i}}</div>
+                {%endfor%}
+            </td>
+            <td>
+                {%for i in namelist%}
+                <div>{{i}}</div>
+                {%endfor%}
+            </td>
+        <td>
+            {%for i in forklist%}
+                <div>{{i}}</div>
+             {%endfor%}
+            </td>
+        <td>
+            {%for i in watcherlist%}
+                <div>{{i}}</div>
+             {%endfor%}
+            </td>
+        <td>
+            {%for i in starlist%}
+                <div>{{i}}</div>
+            {%endfor%}
+            </td>
+        <td>
+            {%for i in sizelist%}
+                <div>{{i}}</div>
+            {%endfor%}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div></td>
+</tr>
+</tbody>
+</table>
+<footer>
+<div align="center">Made With
+    <img src="https://cdn.pixabay.com/photo/2017/05/05/09/00/heart-2286378_960_720.png" width="20" height="20"> by <span style="font-weight:bold;">Paras Jain</span>.
+</div>
+</footer>
+</body>
+</html>
