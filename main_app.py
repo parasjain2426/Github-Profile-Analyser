@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key= os.urandom(123)
 
 
-
+#function for login page
 @app.route("/",methods=["GET","POST"])
 def loginpage():
     error=""
@@ -21,6 +21,7 @@ def loginpage():
             return render_template("login.html",error=error)
     return render_template("login.html",error=error)
 
+#function for main page(analysing page)
 @app.route("/analysepage")
 def analysepage():
     count=1
@@ -55,7 +56,8 @@ def analysepage():
                                starlist=starlist,sizelist=sizelist,count=count,img=img,bio=bio)
     else:
         return redirect(url_for("loginpage"))
-
+    
+#function for page to show graph
 @app.route("/graph")
 def graph():
     if "user" in session:
@@ -69,7 +71,8 @@ def graph():
         return render_template("graph.html",namelist=namelist,watcherlist=watcherlist)
     else:
         return redirect(url_for("loginpage"))
-
+    
+#function to pull out logout request by the user
 @app.route("/logout")
 def logout():
     if "user" in session:
@@ -77,7 +80,8 @@ def logout():
         return redirect(url_for("loginpage"))
     else:
         return "<p>You are already logged out</p>"
-
+    
+#functions to handle error
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html")
